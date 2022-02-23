@@ -1,0 +1,22 @@
+{
+	"name": "GIT_test",
+	"properties": {
+		"description": "git test",
+		"activities": [
+			{
+				"name": "file_exists",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "file_exists",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
