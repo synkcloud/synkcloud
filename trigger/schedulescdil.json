@@ -1,0 +1,24 @@
+{
+	"name": "schedulescdil",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "file_exists",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 2,
+				"startTime": "2022-02-23T01:42:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
