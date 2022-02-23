@@ -1,0 +1,9 @@
+{
+	"name": "scdildatafactorydev",
+	"location": "eastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0ea54ae2-2870-4e9a-ac08-e688ddeb6044",
+		"tenantId": "bcc4f723-2277-4c1c-8d70-2ebe3a2770fb"
+	}
+}

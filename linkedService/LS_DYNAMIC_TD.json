@@ -1,0 +1,12 @@
+{
+	"name": "LS_DYNAMIC_TD",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=devscdilsa3;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDY4MEEwNzBBLTkzMzMtNEJDNy1BM0JFLUIzNzk3MTE1RTMzNF9mYTkxNWI5ZS1jM2M1LTQ0NmEtYjFjYy03NTI0YWMyYjY4YzQiDQp9"
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS1_CUSTOMER",
+						"type": "DatasetReference"
+					},
+					"name": "customer"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS1_purchase",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_dynamic_TD",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Join1"
+				},
+				{
+					"name": "cost"
+				}
+			],
+			"script": "source(output(\n\t\tcust_num as integer,\n\t\tcustomer as string,\n\t\tlocation as string,\n\t\ttype as string,\n\t\tphone as long,\n\t\tdate as date\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> customer\nsource(output(\n\t\tpurchase_order as short,\n\t\tcust_num as short,\n\t\tqty as short,\n\t\tunit_price as decimal(10,0),\n\t\torder_date as date\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\ncustomer, source1 join(customer@cust_num == source1@cust_num,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> Join1\nJoin1 derive(material_cost = qty*unit_price) ~> cost\ncost sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tmapColumn(\n\t\tcust_num = customer@cust_num,\n\t\tcustomer,\n\t\tlocation,\n\t\ttype,\n\t\tphone,\n\t\tdate,\n\t\tpurchase_order,\n\t\tcust_num = source1@cust_num,\n\t\tqty,\n\t\tunit_price,\n\t\torder_date,\n\t\tmaterial_cost\n\t)) ~> sink1"
+		}
+	}
+}

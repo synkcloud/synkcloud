@@ -1,0 +1,13 @@
+{
+	"name": "LF_DS_TARGET",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Target Link file service",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=devscdilsa3;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDY4MEEwNzBBLTkzMzMtNEJDNy1BM0JFLUIzNzk3MTE1RTMzNF81MDNmZDk3NS1kODFhLTQ2ZTMtOWMwYS1lYzE4MjljY2I3ZDEiDQp9"
+		}
+	}
+}
